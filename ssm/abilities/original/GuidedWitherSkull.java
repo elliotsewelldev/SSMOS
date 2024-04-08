@@ -117,7 +117,7 @@ public class GuidedWitherSkull extends Ability implements OwnerRightClickEvent {
                     smashDamageEvent.multiplyKnockback(knockback);
                     smashDamageEvent.setIgnoreDamageDelay(true);
                     smashDamageEvent.setReason(name);
-                    smashDamageEvent.callEvent();
+                    Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 }
                 location.getWorld().playSound(location, Sound.EXPLODE, 2.5F, 0.4F);
                 Utils.playParticle(EnumParticle.EXPLOSION_HUGE, location,

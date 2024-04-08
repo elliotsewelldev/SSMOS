@@ -102,7 +102,7 @@ public class TargetLaser extends Ability implements OwnerRightClickEvent, OwnerD
                     smashDamageEvent.multiplyKnockback(0);
                     smashDamageEvent.setIgnoreDamageDelay(true);
                     smashDamageEvent.setReason(name);
-                    smashDamageEvent.callEvent();
+                    Bukkit.getPluginManager().callEvent(smashDamageEvent);
                     target = null;
                     Bukkit.getScheduler().cancelTask(laser_task);
                 }

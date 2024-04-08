@@ -1,5 +1,6 @@
 package ssm.abilities.original;
 
+import org.bukkit.Bukkit;
 import ssm.abilities.Ability;
 import ssm.attributes.ExpCharge;
 import ssm.events.SmashDamageEvent;
@@ -108,7 +109,7 @@ public class Blizzard extends Ability {
             smashDamageEvent.multiplyKnockback(0);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
         }
     }
 

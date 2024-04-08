@@ -1,5 +1,6 @@
 package ssm.attributes;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.managers.ownerevents.OwnerTakeSmashDamageEvent;
 import ssm.utilities.Utils;
@@ -64,7 +65,7 @@ public class DeadlyBones extends Attribute implements OwnerTakeSmashDamageEvent 
                     smashDamageEvent.multiplyKnockback(knockback_multiplier);
                     smashDamageEvent.setIgnoreDamageDelay(true);
                     smashDamageEvent.setReason(name);
-                    smashDamageEvent.callEvent();
+                    Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 }
                 bone.remove();
                 cancel();

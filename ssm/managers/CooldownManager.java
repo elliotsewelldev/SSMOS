@@ -1,5 +1,6 @@
 package ssm.managers;
 
+import org.bukkit.Bukkit;
 import ssm.abilities.Ability;
 import ssm.attributes.Attribute;
 import ssm.events.RechargeAttributeEvent;
@@ -57,7 +58,7 @@ public class CooldownManager extends BukkitRunnable {
                 cdDataIterator.remove();
 
                 RechargeAttributeEvent event = new RechargeAttributeEvent(currData.getAbilityUser(), currData.getAttribute());
-                event.callEvent();
+                Bukkit.getPluginManager().callEvent(event);
                 Utils.sendAttributeMessage("You can use", currData.getAttribute().name,
                         currData.getAbilityUser(), ServerMessageType.RECHARGE);
                 Utils.sendActionBarMessage("§a§l" + currData.getAttribute().name + " Recharged", currData.getAbilityUser());

@@ -67,7 +67,7 @@ public class SonicHurr extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(0);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             Vector trajectory = player.getLocation().toVector().subtract(owner.getLocation().toVector()).normalize();
             VelocityUtil.setVelocity(player, trajectory, scale * velocity_factor, false, 0, 0.5, 0.8, true);
         }

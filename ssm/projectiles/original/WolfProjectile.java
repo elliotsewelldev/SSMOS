@@ -98,7 +98,7 @@ public class WolfProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         player.getWorld().playSound(player.getLocation(), Sound.WOLF_GROWL, 1.5f, 1.5f);
         Utils.sendAttributeMessage("You hit " + ChatColor.YELLOW + player.getName()
                 + ChatColor.GRAY + " with", name, firer, ServerMessageType.GAME);

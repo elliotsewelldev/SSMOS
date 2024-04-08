@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import ssm.events.SmashDamageEvent;
 import ssm.projectiles.SmashProjectile;
@@ -65,7 +66,7 @@ public class BaconProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         playHitSound();
         bounceBack();
         this.cancel();

@@ -89,7 +89,7 @@ public class SlimeProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         playHitSound();
         last_slime_hit_time = System.currentTimeMillis();
         // Cancel hit detection

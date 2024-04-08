@@ -96,7 +96,7 @@ public class ChickenMissile extends Ability implements OwnerRightClickEvent {
                         smashDamageEvent.multiplyKnockback(0);
                         smashDamageEvent.setIgnoreDamageDelay(true);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                         Vector living2d = livingEntity.getLocation().toVector().setY(0);
                         Vector chicken2d = chicken.getLocation().toVector().setY(0);
                         VelocityUtil.setVelocity(livingEntity, living2d.clone().subtract(chicken2d).normalize(),

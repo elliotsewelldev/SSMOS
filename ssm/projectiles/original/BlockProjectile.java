@@ -69,7 +69,7 @@ public class BlockProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         if (projectile instanceof FallingBlock) {
             FallingBlock thrown = (FallingBlock) projectile;
             hit_block_effect = projectile.getWorld().spawnFallingBlock(projectile.getLocation(), thrown.getMaterial(), (byte) thrown.getBlockData());

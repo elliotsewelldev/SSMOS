@@ -208,7 +208,7 @@ public class Fissure extends Ability implements OwnerRightClickEvent {
                             SmashDamageEvent smashDamageEvent = new SmashDamageEvent(cur, owner, damage);
                             smashDamageEvent.multiplyKnockback(0);
                             smashDamageEvent.setReason(name);
-                            smashDamageEvent.callEvent();
+                            Bukkit.getPluginManager().callEvent(smashDamageEvent);
                             Utils.sendAttributeMessage(ChatColor.YELLOW + owner.getName() +
                                     ChatColor.GRAY + " hit you with", name, cur, ServerMessageType.GAME);
 

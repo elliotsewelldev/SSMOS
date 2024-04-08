@@ -1,5 +1,6 @@
 package ssm.commands;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,7 +28,7 @@ public class CommandDamage implements CommandExecutor {
                 smashDamageEvent.setDamageCause(EntityDamageEvent.DamageCause.STARVATION);
                 smashDamageEvent.setDamagerName("Command");
                 smashDamageEvent.setReason("Command");
-                smashDamageEvent.callEvent();
+                Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 player.sendMessage("You were dealt " + damage_number + " damage");
                 if(args.length >= 2) {
                     int hunger_number = Integer.parseInt(args[1]);

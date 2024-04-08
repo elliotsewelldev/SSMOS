@@ -105,7 +105,7 @@ public class Firefly extends Ability implements OwnerRightClickEvent, OwnerTakeS
                         smashDamageEvent.multiplyKnockback(knockback_multiplier);
                         smashDamageEvent.setIgnoreDamageDelay(true);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                     }
                 }
             }

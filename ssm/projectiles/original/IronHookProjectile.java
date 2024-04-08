@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.projectiles.SmashProjectile;
 import ssm.utilities.ServerMessageType;
@@ -62,7 +63,7 @@ public class IronHookProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         if(smashDamageEvent.isCancelled()) {
             return true;
         }

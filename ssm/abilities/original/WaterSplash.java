@@ -99,7 +99,7 @@ public class WaterSplash extends Ability implements OwnerRightClickEvent, OwnerT
                         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(livingEntity, owner, damage * damage_multiplier);
                         smashDamageEvent.setIgnoreDamageDelay(true);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                     }
                     Bukkit.getScheduler().cancelTask(splash_task);
                 } else if (owner.isBlocking() && time_elapsed >= second_boost_time_ms && !boost_used) {

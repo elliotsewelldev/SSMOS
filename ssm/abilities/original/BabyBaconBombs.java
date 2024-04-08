@@ -1,5 +1,6 @@
 package ssm.abilities.original;
 
+import org.bukkit.Bukkit;
 import ssm.abilities.Ability;
 import ssm.attributes.NetherPig;
 import ssm.events.SmashDamageEvent;
@@ -117,7 +118,7 @@ public class BabyBaconBombs extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(0);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
         }
         pig.remove();
     }

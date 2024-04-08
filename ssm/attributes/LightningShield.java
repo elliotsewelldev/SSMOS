@@ -89,7 +89,7 @@ public class LightningShield extends Attribute implements OwnerTakeSmashDamageEv
                 smashDamageEvent.multiplyKnockback(2.5);
                 smashDamageEvent.setIgnoreDamageDelay(true);
                 smashDamageEvent.setReason(name);
-                smashDamageEvent.callEvent();
+                Bukkit.getPluginManager().callEvent(smashDamageEvent);
             }
             return;
         }

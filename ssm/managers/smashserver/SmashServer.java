@@ -364,7 +364,7 @@ public class SmashServer implements Listener, Runnable {
         }
         lives.put(player, lives.get(player) - 1);
         PlayerLostLifeEvent playerLostLifeEvent = new PlayerLostLifeEvent(player, lives.get(player));
-        playerLostLifeEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(playerLostLifeEvent);
         // Out of the game check
         if (lives.get(player) <= 0) {
             Utils.sendTitleMessage(player, ChatColor.RED + "You Died", "",

@@ -103,7 +103,7 @@ public class SuperWaterSplash extends Ability implements OwnerRightClickEvent, O
                         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(livingEntity, owner, damage * damage_multiplier);
                         smashDamageEvent.setIgnoreDamageDelay(true);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                     }
                     Bukkit.getScheduler().cancelTask(splash_task);
                     // Destroy Blocks

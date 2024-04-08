@@ -107,7 +107,7 @@ public class FlameDash extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(dash_knockback);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             Utils.sendAttributeMessage(ChatColor.YELLOW + owner.getName() +
                     ChatColor.GRAY + " hit you with", name, player, ServerMessageType.GAME);
         }

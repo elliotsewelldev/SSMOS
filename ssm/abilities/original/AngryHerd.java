@@ -148,7 +148,7 @@ public class AngryHerd extends Ability implements OwnerRightClickEvent {
                         smashDamageEvent.multiplyKnockback(knockback);
                         smashDamageEvent.setIgnoreDamageDelay(true);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                         Utils.playParticle(EnumParticle.EXPLOSION_LARGE, cow.getLocation().add(0, 1, 0),
                                 1f, 1f, 1f, 0, 12, 96, cow.getWorld().getPlayers());
                         cow.getWorld().playSound(cow.getLocation(), Sound.ZOMBIE_WOOD, 0.75f, 0.8f);

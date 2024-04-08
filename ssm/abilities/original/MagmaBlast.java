@@ -1,5 +1,6 @@
 package ssm.abilities.original;
 
+import org.bukkit.Bukkit;
 import ssm.abilities.Ability;
 import ssm.events.SmashDamageEvent;
 import ssm.managers.ownerevents.OwnerDealSmashDamageEvent;
@@ -98,7 +99,7 @@ public class MagmaBlast extends Ability implements OwnerRightClickEvent, OwnerDe
             smashDamageEvent.multiplyKnockback(0);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             Vector difference = player.getEyeLocation().toVector().subtract(projectile.getLocation().add(0, -0.5, 0).toVector());
             difference.normalize();
             VelocityUtil.setVelocity(player, difference, 1 + 2 * range, false, 0, 0.2 + 0.4 * range, 1.2, true);

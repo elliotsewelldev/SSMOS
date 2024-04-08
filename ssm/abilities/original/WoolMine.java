@@ -118,7 +118,7 @@ public class WoolMine extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(0);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             if(owner == null) {
                 wool_block.setType(block_material);
                 wool_block.setData(block_data);

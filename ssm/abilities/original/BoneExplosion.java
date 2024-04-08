@@ -49,7 +49,7 @@ public class BoneExplosion extends Ability implements OwnerRightClickEvent {
                 smashDamageEvent.multiplyKnockback(2.5);
                 smashDamageEvent.setIgnoreDamageDelay(true);
                 smashDamageEvent.setReason(name);
-                smashDamageEvent.callEvent();
+                Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 Utils.sendAttributeMessage(ChatColor.YELLOW + owner.getName() +
                         ChatColor.GRAY + " used", name, hit, ServerMessageType.GAME);
             }

@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.abilities.original.WoolMine;
 import ssm.events.SmashDamageEvent;
 import ssm.managers.BlockRestoreManager;
@@ -61,7 +62,7 @@ public class WoolProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         solidify(false);
         return true;
     }

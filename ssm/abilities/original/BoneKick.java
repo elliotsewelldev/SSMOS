@@ -67,7 +67,7 @@ public class BoneKick extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(knockback_multiplier);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             owner.getWorld().playSound(owner.getLocation(), Sound.SKELETON_HURT, 4f, 0.6f);
             owner.getWorld().playSound(owner.getLocation(), Sound.SKELETON_HURT, 4f, 0.6f);
             if(livingEntity instanceof Player) {

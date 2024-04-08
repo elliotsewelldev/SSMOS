@@ -129,7 +129,7 @@ public class MilkSpiral extends Ability implements OwnerRightClickEvent {
                     SmashDamageEvent smashDamageEvent = new SmashDamageEvent(player, owner, damage);
                     smashDamageEvent.setIgnoreDamageDelay(true);
                     smashDamageEvent.setReason(name);
-                    smashDamageEvent.callEvent();
+                    Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 }
             }
         }, 0L, 0L);

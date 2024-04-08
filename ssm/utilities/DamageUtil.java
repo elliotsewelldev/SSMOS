@@ -39,7 +39,7 @@ public class DamageUtil {
         smashDamageEvent.setDamageCause(DamageCause.VOID);
         smashDamageEvent.setDamagerName("Void");
         smashDamageEvent.setReason("World Border");
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         // Only teleport if we died from the damage event
         if(pre_lives > 0) {
             if(pre_lives == server.getLives(player)) {

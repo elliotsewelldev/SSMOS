@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -72,7 +73,7 @@ public class FireProjectile extends SmashProjectile {
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         int fire_ticks = Math.min(160, Math.max(0, hit.getFireTicks()) + fire_ticks_added);
         hit.setFireTicks(fire_ticks);
         burned_entity = hit;

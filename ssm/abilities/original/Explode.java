@@ -85,7 +85,7 @@ public class Explode extends Ability implements OwnerRightClickEvent, OwnerToggl
                     smashDamageEvent.multiplyKnockback(2.5);
                     smashDamageEvent.setIgnoreDamageDelay(true);
                     smashDamageEvent.setReason(name);
-                    smashDamageEvent.callEvent();
+                    Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 }
                 VelocityUtil.setVelocity(owner, 1.8, 0.2, 1.4, true);
                 Utils.sendAttributeMessage("You used", name, owner, ServerMessageType.SKILL);

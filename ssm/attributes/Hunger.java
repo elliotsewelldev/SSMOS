@@ -1,5 +1,6 @@
 package ssm.attributes;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.utilities.ServerMessageType;
 import ssm.utilities.Utils;
@@ -48,7 +49,7 @@ public class Hunger extends Attribute {
             smashDamageEvent.setDamageCause(EntityDamageEvent.DamageCause.STARVATION);
             smashDamageEvent.setDamagerName("Starvation");
             smashDamageEvent.setReason("Starvation");
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             return;
         }
         if(hunger_ticks == 0) {

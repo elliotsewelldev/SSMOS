@@ -108,7 +108,7 @@ public class StaticLaser extends Ability implements OwnerRightClickEvent {
             smashDamageEvent.multiplyKnockback(knockback_multiplier);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
         }
         Utils.sendAttributeMessage("You fired", name, owner, ServerMessageType.SKILL);
         owner.getWorld().playSound(owner.getEyeLocation(), Sound.ZOMBIE_REMEDY, 0.5f + owner.getExp(), 1.75f - owner.getExp());

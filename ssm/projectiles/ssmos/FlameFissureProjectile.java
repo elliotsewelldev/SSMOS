@@ -1,6 +1,7 @@
 package ssm.projectiles.ssmos;
 
 import net.minecraft.server.v1_8_R3.EnumParticle;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -77,7 +78,7 @@ public class FlameFissureProjectile extends SmashProjectile {
         smashDamageEvent.setReason(name);
         Utils.playParticle(EnumParticle.EXPLOSION_NORMAL, hit.getLocation().add(0, 1, 0),
                 1f, 1f, 1f, 0, 12, 96, hit.getWorld().getPlayers());
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         int fire_ticks = Math.min(160, Math.max(0, hit.getFireTicks()) + burn_ticks);
         hit.setFireTicks(fire_ticks);
         burned_entity = hit;

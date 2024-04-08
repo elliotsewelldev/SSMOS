@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.projectiles.SmashProjectile;
 import ssm.utilities.DamageUtil;
@@ -87,7 +88,7 @@ public class PotionProjectile extends SmashProjectile {
             smashDamageEvent.multiplyKnockback(knockback_mult);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             player.removePotionEffect(PotionEffectType.SLOW);
             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 1, false, false));
         }
@@ -108,7 +109,7 @@ public class PotionProjectile extends SmashProjectile {
             smashDamageEvent.multiplyKnockback(knockback_mult);
             smashDamageEvent.setIgnoreDamageDelay(true);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
             player.removePotionEffect(PotionEffectType.SLOW);
             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 0, false, false));
         }

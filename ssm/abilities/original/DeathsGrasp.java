@@ -113,7 +113,7 @@ public class DeathsGrasp extends Ability implements OwnerLeftClickEvent {
                 smashDamageEvent.multiplyKnockback(0);
                 smashDamageEvent.setIgnoreDamageDelay(true);
                 smashDamageEvent.setReason(name);
-                smashDamageEvent.callEvent();
+                Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 Location owner2d = owner.getLocation().clone();
                 owner2d.setY(0);
                 Location hit2d = hit.getLocation().clone();

@@ -83,7 +83,7 @@ public class WolfStrike extends Ability implements OwnerRightClickEvent, OwnerDe
         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(hit, owner, strike_damage);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         owner.getWorld().playSound(owner.getLocation(), Sound.WOLF_BARK, 1.5f, 1f);
         Utils.sendAttributeMessage("You hit " + ChatColor.YELLOW + hit.getName() +
                 ChatColor.GRAY + " with", name, owner, ServerMessageType.GAME);

@@ -72,7 +72,7 @@ public class SeismicSlam extends Ability implements OwnerRightClickEvent {
             SmashDamageEvent smashDamageEvent = new SmashDamageEvent(other, owner, damage);
             smashDamageEvent.multiplyKnockback(2.4);
             smashDamageEvent.setReason(name);
-            smashDamageEvent.callEvent();
+            Bukkit.getPluginManager().callEvent(smashDamageEvent);
         }
         owner.getWorld().playSound(owner.getLocation(), Sound.ZOMBIE_WOOD, 2f, 0.2f);
         for (Block check : BlocksUtil.getBlocks(owner.getLocation(), 4)) {

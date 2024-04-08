@@ -1,5 +1,7 @@
 package ssm.abilities.original;
 
+import com.destroystokyo.paper.event.entity.ProjectileCollideEvent;
+import org.bukkit.World;
 import org.bukkit.event.EventPriority;
 import ssm.abilities.Ability;
 import ssm.events.SmashDamageEvent;
@@ -63,19 +65,19 @@ public class Needler extends Ability implements OwnerRightClickEvent {
     }
 
     @EventHandler
-    public void arrowHit(ProjectileHitEvent e) {
-        if (e.getEntity() instanceof Arrow && e.getHitEntity() instanceof LivingEntity) {
+    public void arrowHit(ProjectileCollideEvent e) {
+        if (e.getEntity() instanceof Arrow && e.getCollidedWith() instanceof LivingEntity) {
             Arrow arrow = (Arrow) e.getEntity();
             if (!arrow.getShooter().equals(owner)) {
                 return;
             }
-            LivingEntity livingEntity = (LivingEntity) e.getHitEntity();
+            LivingEntity livingEntity = (LivingEntity) e.getCollidedWith();
             List<MetadataValue> data = arrow.getMetadata("Needler");
             if (data.size() > 0) {
                 SmashDamageEvent smashDamageEvent = new SmashDamageEvent(livingEntity, (LivingEntity) arrow.getShooter(), 1.1);
                 smashDamageEvent.setIgnoreDamageDelay(true);
                 smashDamageEvent.setReason(name);
-                smashDamageEvent.callEvent();
+                Bukkit.getPluginManager().callEvent(smashDamageEvent);
                 arrow.remove();
                 if(DamageUtil.canDamage(livingEntity, (LivingEntity) arrow.getShooter())) {
                     // Remove the poison so we can re-apply

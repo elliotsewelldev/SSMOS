@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.managers.BlockRestoreManager;
 import ssm.projectiles.SmashProjectile;
@@ -55,7 +56,7 @@ public class WebProjectile extends SmashProjectile {
         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(hit, firer, damage);
         smashDamageEvent.multiplyKnockback(knockback_mult);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         VelocityUtil.setVelocity(hit, new Vector(0, 0, 0));
         return true;
     }

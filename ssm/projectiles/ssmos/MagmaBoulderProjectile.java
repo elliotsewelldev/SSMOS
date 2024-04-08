@@ -117,7 +117,7 @@ public class MagmaBoulderProjectile extends SmashProjectile {
         }
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         return false;
     }
 

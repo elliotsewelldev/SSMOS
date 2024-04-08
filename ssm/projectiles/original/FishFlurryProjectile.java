@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.projectiles.SmashProjectile;
 import ssm.utilities.Utils;
@@ -58,7 +59,7 @@ public class FishFlurryProjectile extends SmashProjectile {
         smashDamageEvent.setReason(name);
         Utils.playParticle(EnumParticle.EXPLOSION_NORMAL, hit.getLocation().add(0, 1, 0),
                 1f, 1f, 1f, 0, 12, 96, hit.getWorld().getPlayers());
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         return true;
     }
 

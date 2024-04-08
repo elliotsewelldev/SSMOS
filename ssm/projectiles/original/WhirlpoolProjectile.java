@@ -1,5 +1,6 @@
 package ssm.projectiles.original;
 
+import org.bukkit.Bukkit;
 import ssm.events.SmashDamageEvent;
 import ssm.projectiles.SmashProjectile;
 import ssm.utilities.Utils;
@@ -59,7 +60,7 @@ public class WhirlpoolProjectile extends SmashProjectile {
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setIgnoreArmor(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         if(smashDamageEvent.isCancelled()) {
             return true;
         }

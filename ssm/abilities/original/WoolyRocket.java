@@ -86,7 +86,7 @@ public class WoolyRocket extends Ability implements OwnerRightClickEvent {
                         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(player, owner, damage);
                         smashDamageEvent.multiplyKnockback(knockback_multiplier);
                         smashDamageEvent.setReason(name);
-                        smashDamageEvent.callEvent();
+                        Bukkit.getPluginManager().callEvent(smashDamageEvent);
                         Utils.playParticle(EnumParticle.EXPLOSION_NORMAL, player.getLocation(),
                                 0f, 0f, 0f, 0, 1, 96, player.getWorld().getPlayers());
                         Utils.playParticle(EnumParticle.LAVA, player.getLocation(),

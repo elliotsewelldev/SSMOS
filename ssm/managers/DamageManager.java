@@ -197,7 +197,7 @@ public class DamageManager implements Listener {
         smashDamageEvent.setProjectile(projectile);
         smashDamageEvent.setDisplayAsLastDamage(display_as_last_damage);
         smashDamageEvent.setReasonColor(reason_color);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         e.setCancelled(true);
     }
 
@@ -465,7 +465,7 @@ public class DamageManager implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void clearArrow(ProjectileHitEvent e) {
         if (e.getEntity() instanceof Arrow) {
-            if (e.getHitEntity() != null) {
+            if (e.getEntity() != null) {
                 e.getEntity().remove();
                 return;
             }

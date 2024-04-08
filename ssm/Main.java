@@ -369,6 +369,7 @@ public class Main extends JavaPlugin implements Listener {
         e.setCancelled(true);
     }
 
+    // COOKIES!
     @EventHandler
     public void onEat(PlayerItemConsumeEvent event) {
         Player player = event.getPlayer();

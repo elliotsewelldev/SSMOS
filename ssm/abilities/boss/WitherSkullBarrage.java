@@ -130,7 +130,7 @@ public class WitherSkullBarrage extends Ability implements OwnerRightClickEvent 
                                 smashDamageEvent.multiplyKnockback(knockback);
                                 smashDamageEvent.setIgnoreDamageDelay(true);
                                 smashDamageEvent.setReason(name);
-                                smashDamageEvent.callEvent();
+                                Bukkit.getPluginManager().callEvent(smashDamageEvent);
                             }
                             // Destroy Blocks
                             Collection<Block> blocks = BlocksUtil.getInRadius(skull.getLocation(), block_destroy_radius).keySet();

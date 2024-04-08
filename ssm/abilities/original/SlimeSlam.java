@@ -81,12 +81,12 @@ public class SlimeSlam extends Ability implements OwnerRightClickEvent {
         recoilEvent.multiplyKnockback(2);
         recoilEvent.setIgnoreDamageDelay(true);
         recoilEvent.setReason(name + " Recoil");
-        recoilEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(recoilEvent);
         SmashDamageEvent smashDamageEvent = new SmashDamageEvent(target, owner, damage);
         smashDamageEvent.multiplyKnockback(2);
         smashDamageEvent.setIgnoreDamageDelay(true);
         smashDamageEvent.setReason(name);
-        smashDamageEvent.callEvent();
+        Bukkit.getPluginManager().callEvent(smashDamageEvent);
         Utils.sendAttributeMessage("You hit " + ChatColor.YELLOW + target.getName()
                 + ChatColor.GRAY + " with", name, owner, ServerMessageType.GAME);
         if(target instanceof Player) {
